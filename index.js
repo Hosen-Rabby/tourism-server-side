@@ -34,7 +34,7 @@ async function run(){
 			res.send(bookings);
 		})
 
-		// getting single service
+		// getting single bookings
 		app.get('/booking/:id', async(req, res) =>{
 			const id = req.params.id;
 			console.log(id);
@@ -43,6 +43,14 @@ async function run(){
 			res.json(booking);
 		})
 
+// getting single service
+		app.get('/shipping/:id', async(req, res) =>{
+			const id = req.params.id;
+			console.log(id);
+			const query = {_id: ObjectId(id)};
+			const shipping = await bookingsCollection.findOne(query);
+			res.json(shipping);
+		})
 		// // post api
 		// app.post('/services', async (req, res) => {
 
