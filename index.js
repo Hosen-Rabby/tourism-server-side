@@ -42,26 +42,14 @@ async function run(){
 		})
 
 // getting shipping 
-		app.get('/shipping/:id', async(req, res) =>{
-			const id = req.params.id;
-			console.log(id);
-			const query = {_id: ObjectId(id)};
-			const shipping = await bookingsCollection.findOne(query);
-			res.json(shipping);
-		})
-		// // post api
-		// app.post('/services', async (req, res) => {
+app.get('/shipping/:id', async(req, res) =>{
+	const id = req.params.id;
+	console.log(id);
+	const query = {_id: ObjectId(id)};
+	const shipping = await bookingsCollection.findOne(query);
+	res.json(shipping);
+})
 
-		// 	const service = req.body;
-
-		// 	console.log('hit', service);
-
-		// 	const result = await servicesCollection.insertOne(service);
-		// 	// console.log(result);
-
-		// 	res.json(result)
-
-		// });
 
 		// delete api
 
