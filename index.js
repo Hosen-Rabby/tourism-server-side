@@ -22,8 +22,6 @@ async function run(){
 
 	try{
 		await client.connect();
-		console.log('connect su');
-
 		const database = client.db("tourism");
 		const bookingsCollection = database.collection('bookings');
 
@@ -43,7 +41,7 @@ async function run(){
 			res.json(booking);
 		})
 
-// getting single service
+// getting shipping 
 		app.get('/shipping/:id', async(req, res) =>{
 			const id = req.params.id;
 			console.log(id);
@@ -65,14 +63,15 @@ async function run(){
 
 		// });
 
-		// // delete service
+		// delete api
 
-		// app.delete('/services/:id', async (req, res) => {
-		// 	const id = req.params.id;
-		// 	const query = {_id: ObjectId(id)};
-		// 	const result = await servicesCollection.deleteOne(query);
-		// 	res.json(result);
-		// })
+		app.delete('/shipping/:id', async (req, res) => {
+			const id = req.params.id;
+			console.log(id)
+			const query = {_id: ObjectId(id)};
+			const result = await servicesCollection.deleteOne(query);
+			res.json(result);
+		})
 	}
 
 	finally{
